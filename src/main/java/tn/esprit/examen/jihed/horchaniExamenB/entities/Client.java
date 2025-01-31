@@ -1,11 +1,10 @@
-package tn.esprit.examen.boycott.entities;
+package tn.esprit.examen.jihed.horchaniExamenB.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -14,14 +13,12 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
-public class Produit implements Serializable {
+public class Client implements Serializable {
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long id;
-    String nomProduit;
+    String nom;
     @Enumerated(EnumType.STRING)
-    Etat etat;
-    @ToString.Exclude
-    @ManyToMany(cascade =CascadeType.PERSIST)
-    Set<Categorie> categories;
+    Genre genre;
 }

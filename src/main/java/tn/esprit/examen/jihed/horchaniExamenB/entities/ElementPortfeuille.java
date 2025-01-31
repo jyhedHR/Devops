@@ -1,12 +1,10 @@
-package tn.esprit.examen.boycott.entities;
+package tn.esprit.examen.jihed.horchaniExamenB.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-import java.util.Set;
-
 @Getter
 @Setter
 @ToString
@@ -14,15 +12,15 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
-public class Produit implements Serializable {
+
+public class ElementPortfeuille implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Long id;
-    String nomProduit;
-    @Enumerated(EnumType.STRING)
-    Etat etat;
-    @ToString.Exclude
-    @ManyToMany(cascade =CascadeType.PERSIST)
-    Set<Categorie> categories;
+    Integer idelement;
+    String Symbole;
+    Integer nbrActions;
+    float prixAchat;
+    @ManyToOne
+    Portfeuille portfeuille;
+
 }
-    

@@ -9,10 +9,10 @@
             <relativePath/> <!-- lookup parent from repository -->
         </parent>
     <groupId>tn.esprit.examen</groupId>
-    <artifactId>boycott</artifactId>
+    <artifactId>JYHEDHR</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boycott</name>
-    <description>boycott</description>
+    <name>nomPrenomClasseExamen</name>
+    <description>nomPrenomClasseExamen</description>
         <url/>
         <licenses>
             <license/>
