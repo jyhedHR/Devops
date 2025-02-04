@@ -16,7 +16,7 @@ pipeline {
               
                    git branch: 'main', 
                     url: 'https://github.com/jyhedHR/Devops.git',
-                    credentialsId: 'GIT_DEV'
+                    credentialsId: 'Git_Key'
             }
             
         }
