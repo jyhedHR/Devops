@@ -14,8 +14,5 @@ import tn.esprit.examen.jihed.horchaniExamenB.services.IExempleServices;
 public class ExempleRestController {
     private final IExempleServices services;
 
-    @PostMapping("/add")
-    public Client add(@RequestBody Client client){
-        return  services.add(client);
-    }
+  
 }

@@ -26,11 +26,18 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
-            steps {
-                sh 'java -jar target/*.jar' // Adjust this if your JAR name is specific
-            }
-        }
+       script {
+                    // Start the Spring Boot application in the background
+                    def appProcess = sh(script: 'java -jar target/*.jar &', returnStdout: true).trim()
+                    echo "Application started with PID: ${appProcess}"
+
+                    // Wait for the application to start (adjust the sleep duration as needed)
+                    sleep(time: 10, unit: 'SECONDS')
+
+                    // Shutdown the VM
+                    echo 'Shutting down the VM...'
+                    sh 'sudo shutdown -h now'
+                }
             
         }
     
