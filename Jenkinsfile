@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh 'java -jar target/*.jar' // Adjust this if your JAR name is specific
                   echo 'Shutting down the VM...'
-                    sh 'sudo shutdown -h now'
+                   
             }
         }
             
