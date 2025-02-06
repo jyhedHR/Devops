@@ -26,7 +26,8 @@ pipeline {
             }
         }
 
-       script {
+        stage('Run Application') {
+            steps {
                     // Start the Spring Boot application in the background
                     def appProcess = sh(script: 'java -jar target/*.jar &', returnStdout: true).trim()
                     echo "Application started with PID: ${appProcess}"
@@ -38,6 +39,7 @@ pipeline {
                     echo 'Shutting down the VM...'
                     sh 'sudo shutdown -h now'
                 }
+        }
             
         }
     
