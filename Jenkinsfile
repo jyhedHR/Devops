@@ -16,7 +16,7 @@ tools{
 
                git branch: 'master',
 
-               url: ' https://github.com/hwafa/timesheetproject.git'
+               url: 'https://github.com/jyhedHR/Devops.git/'
 
           }
 
