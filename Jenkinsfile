@@ -11,16 +11,12 @@ tools{
  stages {
 
  stage('GIT') {
-
-           steps {
-
-               git branch: 'master',
-
-               url: 'https://github.com/jyhedHR/Devops.git/'
-
-          }
-
-     }
+            steps {
+              
+                   git branch: 'main', 
+                    url: 'https://github.com/jyhedHR/Devops.git',
+                    credentialsId: 'Git_Key'
+            }
 
  stage ('Compile Stage') {
 
