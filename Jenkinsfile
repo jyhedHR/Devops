@@ -1,39 +1,37 @@
 pipeline {
-    agent any 
-    tools{
-        maven'M2_HOME'
-    }
 
-    stages {
-        stage('Hello') {
-            steps {
-            echo 'hi jyhed'
-            }
-            
-        }
-          stage('GIT') {
-            steps {
-              
-                   git branch: 'main', 
-                    url: 'https://github.com/jyhedHR/Devops.git',
-                    credentialsId: 'Git_Key'
-            }
-            
-        }
-            stage('Build Project') {
-            steps {
-                sh 'mvn clean package -DskipTests' // Builds the Spring Boot project and packages it as a JAR
-            }
-        }
+ agent any
 
-        stage('Run Application') {
-            steps {
-               // sh 'java -jar target/*.jar' // Adjust this if your JAR name is specific
-                  echo 'Shutting down the VM...'
-                   
-            }
-        }
-            
-        }
+tools{
+    jdk 'JAVA_HOME'
+    maven 'M2_HOME'
     
+}
+
+ stages {
+
+ stage('GIT') {
+
+           steps {
+
+               git branch: 'master',
+
+               url: ' https://github.com/hwafa/timesheetproject.git'
+
+          }
+
+     }
+
+ stage ('Compile Stage') {
+
+ steps {
+
+ sh 'mvn clean compile'
+
+ }
+
+ }
+
+ }
+
 }
