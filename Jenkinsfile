@@ -22,7 +22,7 @@ pipeline {
         }
             stage('Build Project') {
             steps {
-                sh 'mvn clean package -DskipTests' // Builds the Spring Boot project and packages it as a JAR
+                sh 'mvn clean install' // Builds the Spring Boot project and packages it as a JAR
             }
         }
 
