@@ -1,37 +1,36 @@
 pipeline {
     agent any 
-    tools{
-        maven'M2_HOME'
+    tools {
+        maven 'M2_HOME'
     }
 
     stages {
         stage('Hello') {
             steps {
-            echo 'hi jyhed'
+                echo 'Hi Jihed'
             }
-            
         }
-          stage('GIT') {
+        
+        stage('Git Checkout') {
             steps {
-              
-                   git branch: 'main', 
+                git branch: 'main', 
                     url: 'https://github.com/jyhedHR/Devops.git',
-                    credentialsId: 'Git_Key'
+                    credentialsId: 'Git_Key' // Remove this if repo is public
             }
-            
         }
-            stage('Build Project') {
+        
+        stage('Build Project') {
             steps {
-                sh 'mvn clean install' // Builds the Spring Boot project and packages it as a JAR
+                sh 'mvn clean install' 
             }
         }
 
-       
-            stage('Run sonor') {
+        stage('Run SonarQube Analysis') {
             steps {
-                sh 'mvn sonor:sonor' // Adjust this if your JAR name is specific
+                withSonarQubeEnv('SonarQube') { // Replace 'SonarQube' with the actual name in Jenkins
+                    sh 'mvn sonar:sonar'
+                }
             }
-        }  
         }
-    
+    }
 }
