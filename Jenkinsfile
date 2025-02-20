@@ -26,11 +26,7 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
-            steps {
-                //sh 'java -jar target/*.jar' // Adjust this if your JAR name is specific
-            }
-        }
+       
             stage('Run sonor') {
             steps {
                 sh 'mvn sonor:sonor' // Adjust this if your JAR name is specific
